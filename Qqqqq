@@ -2,96 +2,136 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Форма открытка</title>
+  <title>Формы в HTML5</title>
   <style>
     * {
       box-sizing: border-box;
     }
 
-    body {
-      background: #F5E9D9;
-    }
-
-    .postcard {
+    .railway {
       max-width: 350px;
       margin: 50px auto 0;
       padding: 20px;
-      border: 10px solid;
-      border-image: repeating-linear-gradient(
-        135deg,
-        #C42061 0px,
-        #C42061 10px,
-        transparent 10px,
-        transparent 20px,
-        #FBCFDF 20px,
-        #FBCFDF 30px,
-        transparent 30px,
-        transparent 40px
-      ) 10;
+      background: #FAAB1B;
+      font-family: 'Oswald', sans-serif;
+    }
+
+    .stripes-block {
+      position: relative;
+      padding: 10px 10px 15px;
+      margin-bottom: 20px;
+      background: repeating-linear-gradient(-30deg, #291810, #291810 8px, #FAAB1B 10px, #FAAB1B 14px);
+    }
+
+    .stripes-block:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 12px;
+      margin-left: -6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
       background: #ffffff;
-      font-family: 'Playfair Display', serif;
-      color: #67556c;
+      box-shadow: 0 0 2px #291810, 0 0 12px #9c8778;
     }
 
-    .form-row {
-      margin-bottom: 15px;
+    .line {
+      width: 60%;
+      margin: 0 auto;
+      height: 15px;
+      border: 2px solid #603624;
+      border-radius: 3px;
+      background: repeating-linear-gradient(90deg, #FAAB1B, #FAAB1B 3px, #603624 3px, #603624 6px);
     }
 
-    .form-row input[type="text"],
-    .form-row input[type="email"],
-    .form-row textarea {
-      width: 100%;
-      padding: 10px;
-      line-height: 35px;
-      border-width: 0;
-      outline: none;
-      border-bottom: 2px solid #C42061;
-      font-family: 'Playfair Display', serif;
-      background: transparent;
-    }
-
-    .form-row textarea {
-      background-attachment: local;
-      resize: none;
-    }
-
-    .form-row input[type="submit"] {
-      padding: 10px 20px;
-      margin-top: 10px;
-      background: #F67CA5;
-      border: none;
-      cursor: pointer;
-      font-family: 'Playfair Display', serif;
-      font-size: 13px;
-      letter-spacing: 1px;
-      color: #fffdee;
+    .railway h3 {
+      padding: 7px;
+      margin-bottom: 20px;
+      text-align: center;
+      line-height: 1;
       text-transform: uppercase;
-      transition: 1s cubic-bezier(.165, .84, .44, 1);
+      color: #FAAB1B;
+      background: #291810;
     }
 
-    .form-row input[type="submit"]:hover {
-      background: #C42061;
+    .form-group {
+      margin-bottom: 20px;
+      padding: 10px;
+      background: #291810;
+    }
+
+    .form-group input,
+    .form-group label,
+    .form-group textarea {
+      display: block;
+      width: 100%;
+    }
+
+    .form-group input {
+      padding: 0;
+      line-height: 30px;
+      background: #FAAB1B;
+      border-width: 0;
+    }
+
+    .form-group label {
+      margin-bottom: 5px;
+      color: #FAAB1B;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .submit-block {
+      padding: 10px 20px 20px;
+      background: repeating-linear-gradient(-30deg, #291810, #291810 8px, #FAAB1B 10px, #FAAB1B 14px);
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .submit-button {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #FAAB1B;
+    }
+
+    .submit-button input {
+      padding: 0;
+      background: #FAAB1B;
+      border-width: 0;
+      text-transform: uppercase;
+      cursor: pointer;
     }
   </style>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
-  <form action="" class="postcard">
-    <div class="form-row">
-      <label for="name">Ваше имя</label>
+  <form action="" class="railway">
+    <div class="stripes-block">
+      <div class="line"></div>
+    </div>
+
+    <h3>Информация о пассажире</h3>
+
+    <div class="form-group">
+      <label for="name">Имя</label>
       <input type="text" id="name" required>
-    </div>
-    <div class="form-row">
-      <label for="email">Ваш Email</label>
+
+      <label for="pass">Паспортные данные</label>
+      <input type="text" id="pass" required>
+
+      <label for="email">Email</label>
       <input type="email" id="email" required>
+
+      <label for="phone">Номер телефона</label>
+      <input type="text" id="phone" required>
     </div>
-    <div class="form-row">
-      <label for="message">Ваше сообщение</label>
-      <textarea rows="5" id="message" required></textarea>
-    </div>
-    <div class="form-row">
-      <input type="submit" value="Отправить сообщение">
+
+    <div class="submit-block">
+      <div class="submit-button">
+        <!-- Значок можно добавить через Font Awesome при необходимости -->
+        <!-- <i class="fa fa-train" aria-hidden="true"></i><br> -->
+        <input type="submit" value="Отправить">
+      </div>
     </div>
   </form>
 </body>
